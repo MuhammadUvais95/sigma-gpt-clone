@@ -1,0 +1,46 @@
+# ===========================
+# Backend
+# ===========================
+Backend/node_modules/
+Backend/.env
+Backend/dist/
+Backend/build/
+
+# ===========================
+# Frontend
+# ===========================
+Frontend/node_modules/
+Frontend/.env
+Frontend/dist/
+Frontend/build/
+
+# ===========================
+# Coverage
+# ===========================
+coverage/
+
+# ===========================
+# Logs
+# ===========================
+*.log
+logs/
+
+# ===========================
+# VS Code
+# ===========================
+.vscode/
+
+# ===========================
+# OS Files
+# ===========================
+.DS_Store
+Thumbs.db
+
+# ===========================
+# Environment Files
+# ===========================
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
