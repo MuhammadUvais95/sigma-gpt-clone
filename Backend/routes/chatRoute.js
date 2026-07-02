@@ -1,5 +1,6 @@
 import express from 'express'
-import {getAllChats, getOneChat, deleteChat} from '../controllers/chatController.js';
+import {getAllChats, getOneChat, deleteChat, gettingResponse} from '../controllers/chatController.js';
+import Thread from '../models/Thread.js';
 const router = express.Router();
 
 
@@ -7,34 +8,40 @@ const router = express.Router();
 router.get("/thread", getAllChats);
 
 
-
-
 router.get("/thread/:threadId", getOneChat);
-
 
 
 router.delete("/thread/:threadId", deleteChat);
 
 
-router.post("/test", async(req,res) => {
-    try{
-        const newChat =   await new Thread({
-            threadId: Date.now(),
-        title: "Gemini",
-        messages: [
-            {
-                role: "user",
-                content: "What is Node.js"
-            }
-        ]
+router.post("/chat", gettingResponse);
 
+
+
+
+
+
+
+router.get("/test", async(req, res) => {
+    try{
+         const thread = new Thread({
+        threadId: "Uvais123456",
+        title: "What is Python",
+        messages: [{
+            role: "user",
+            content: "Library of python"
+        }]
     })
-    const data = await newChat.save();
-    res.status(200).json(newChat);
-    console.log("newchat is ::", newChat);
-    } catch(err) {
-        console.log("Error is ::", err);
+        await thread.save();
+        return res.status(201).json({message: "new thread created successfully!", thread})
+    }catch(err) {
+      console.log("error is ::", err);
     }
-} )
+   
+})
+
+
+
+
 
 export default router;
