@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 
 
-
 const messageSchema = new mongoose.Schema({
     role: {
         type: String,
@@ -44,6 +43,4 @@ const threadSchema = new mongoose.Schema({
     }
 
 })
-
-
 export default mongoose.model("Thread", threadSchema);

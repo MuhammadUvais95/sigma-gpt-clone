@@ -28,7 +28,7 @@ const getOpenAiAPIResponse = async (message) => {
 
     const data = await response.json(); // convert to json -> JS object
     console.log(data);
-    return data;
+    return data.candidates?.[0]?.content?.parts?.[0]?.text || "No response generated.";
   } catch (err) {
     console.error(err);
   }
